@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnicas de Sombreado y Luz | DominaElLápiz</title>
+    <meta name="description" content="Las 5 técnicas de sombreado, control del trazo y cómo leer la luz: dura, suave, sombra propia, proyectada y luz de rebote.">
+    <meta name="theme-color" content="#232429">
+    <meta property="og:title" content="DominaElLápiz — Aprende a dibujar desde cero">
+    <meta property="og:description" content="Masterclass gratuita de arte: materiales, sombreado, teoría del color, anatomía del rostro y perspectiva.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='8' width='84' height='84' rx='22' fill='%233b82f6'/%3E%3Cpath d='M32 68 L52 28 L74 68 Z' fill='white'/%3E%3Crect x='58' y='44' width='9' height='34' rx='4' fill='white'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind custom config -->
+    <script src="js/tailwind.config.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-art-50 text-art-900 font-sans antialiased overflow-x-hidden">
+
+    <!-- Skip link -->
+    <a href="#contenido" class="skip-link sr-only">Saltar al contenido principal</a>
+
+    <!-- Reading progress bar -->
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-art-accent z-[60] w-0" aria-hidden="true"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar" aria-label="Navegación principal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-2.5" aria-label="DominaElLápiz, inicio">
+                    <span class="w-10 h-10 rounded-xl bg-art-950 flex items-center justify-center shadow-sm">
+                        <i data-lucide="palette" class="text-art-accent w-6 h-6"></i>
+                    </span>
+                    <span class="font-serif font-bold text-2xl tracking-tight text-art-950">DominaElLápiz</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="index.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Inicio</a>
+                    <a href="materiales.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Materiales</a>
+                    <a href="sombreado.html" class="nav-link page-active text-art-900 hover:text-art-accent font-medium transition-colors" aria-current="page">Sombreado</a>
+                    <a href="color.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Color</a>
+                    <a href="anatomia.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Anatomía</a>
+                    <a href="perspectiva.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Perspectiva</a>
+                    <a href="plan.html#plan" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Tu plan</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-art-800 hover:text-art-accent focus:outline-none p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-t border-art-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Inicio</a>
+                <a href="index.html#ruta" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Tu ruta de aprendizaje</a>
+                <a href="materiales.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Materiales</a>
+                <a href="sombreado.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-accent bg-art-50 hover:bg-art-50">Técnicas de Sombreado</a>
+                <a href="materiales.html#valor" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Valor tonal</a>
+                <a href="sombreado.html#luz" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Luz y sombra</a>
+                <a href="color.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Teoría del Color</a>
+                <a href="anatomia.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Anatomía &amp; Rostro</a>
+                <a href="perspectiva.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Perspectiva</a>
+                <a href="perspectiva.html#composicion" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Composición</a>
+                <a href="perspectiva.html#texturas" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Texturas</a>
+                <a href="anatomia.html#retrato" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Retrato paso a paso</a>
+                <a href="plan.html#practica" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Zona de práctica</a>
+                <a href="plan.html#quiz" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Evaluación</a>
+                <a href="plan.html#plan" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Tu plan de práctica</a>
+                <a href="plan.html#recursos" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Recursos y creadores</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido">
+
+        <section id="sombreado" class="py-20 bg-art-950 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-art-400 uppercase mb-2">Técnicas</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-white">5 Formas de Sombrear</h3>
+                    <p class="mt-4 text-art-300 max-w-2xl mx-auto">Domina la luz, los medios tonos, la sombra propia y la sombra arrojada con estas técnicas fundamentales.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-8 reveal">
+                    <!-- Tab Controls -->
+                    <div class="lg:w-1/3 flex flex-col gap-2" role="tablist" aria-label="Técnicas de sombreado">
+                        <button id="btn-tab1" class="tab-btn tab-active w-full text-left px-6 py-4 rounded-xl font-medium bg-art-800 text-white border-l-4 border-art-accent" role="tab" aria-selected="true" data-tab="tab1">
+                            1. Por Mancha / Difuminado
+                        </button>
+                        <button id="btn-tab2" class="tab-btn w-full text-left px-6 py-4 rounded-xl font-medium text-art-400 hover:bg-art-900 border-l-4 border-transparent hover:border-art-600" role="tab" aria-selected="false" data-tab="tab2">
+                            2. Trama (Hatching)
+                        </button>
+                        <button id="btn-tab3" class="tab-btn w-full text-left px-6 py-4 rounded-xl font-medium text-art-400 hover:bg-art-900 border-l-4 border-transparent hover:border-art-600" role="tab" aria-selected="false" data-tab="tab3">
+                            3. Trama Cruzada (Cross-hatching)
+                        </button>
+                        <button id="btn-tab4" class="tab-btn w-full text-left px-6 py-4 rounded-xl font-medium text-art-400 hover:bg-art-900 border-l-4 border-transparent hover:border-art-600" role="tab" aria-selected="false" data-tab="tab4">
+                            4. Trama de Contorno
+                        </button>
+                        <button id="btn-tab5" class="tab-btn w-full text-left px-6 py-4 rounded-xl font-medium text-art-400 hover:bg-art-900 border-l-4 border-transparent hover:border-art-600" role="tab" aria-selected="false" data-tab="tab5">
+                            5. Trama Variada / Puntillismo
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="lg:w-2/3 bg-art-900 rounded-2xl p-8 border border-art-800 relative">
+                        <!-- Tab 1 -->
+                        <div id="tab1" class="tab-content active" role="tabpanel" aria-labelledby="btn-tab1">
+                            <h4 class="text-2xl font-serif font-bold text-white mb-4">Sombreado por Mancha o Difuminado</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <div>
+                                    <p class="text-art-300 mb-4">Consiste en difuminar el grafito para lograr un acabado suave. Es la técnica perfecta si buscas más profundidad y realismo (estilo fotorealista).</p>
+                                    <ul class="list-disc pl-5 text-art-400 space-y-2">
+                                        <li>Da un tono general con un lápiz HB o 2H sin hacer presión.</li>
+                                        <li>Unifica el tono frotando suavemente con papel, pincel o algodón.</li>
+                                        <li>Oscurece gradualmente usando lápices más blandos (ej. 4B, 6B) solo en las zonas de sombra.</li>
+                                        <li>Usa el difumino para integrar los detalles pequeños.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-art-800 rounded-xl aspect-video overflow-hidden border border-art-700">
+                                    <svg viewBox="0 0 320 180" class="w-full h-full block" role="img" aria-label="Esfera sombreada por difuminado">
+                                        <defs>
+                                            <radialGradient id="g-mancha" cx="32%" cy="30%" r="72%">
+                                                <stop offset="0%" stop-color="#ffffff"/>
+                                                <stop offset="40%" stop-color="#d6d6db"/>
+                                                <stop offset="70%" stop-color="#a1a1aa"/>
+                                                <stop offset="100%" stop-color="#3f3f46"/>
+                                            </radialGradient>
+                                        </defs>
+                                        <rect width="320" height="180" rx="12" fill="#fafaf7"/>
+                                        <ellipse cx="160" cy="133" rx="62" ry="11" fill="#d9d9de"/>
+                                        <circle cx="160" cy="88" r="58" fill="url(#g-mancha)"/>
+                                        <ellipse cx="146" cy="66" rx="22" ry="10" fill="#ffffff" opacity="0.9"/>
+                                        <text x="160" y="171" text-anchor="middle" font-size="10" fill="#a1a1aa" font-family="Outfit, sans-serif">Transiciones suaves, estilo fotorealista</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2 -->
+                        <div id="tab2" class="tab-content" role="tabpanel" aria-labelledby="btn-tab2">
+                            <h4 class="text-2xl font-serif font-bold text-white mb-4">Sombreado con Trama (Hatching)</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <div>
+                                    <p class="text-art-300 mb-4">Consiste en hacer líneas en un <b>solo sentido</b> (verticales, horizontales o diagonales). Ideal para entrenar el pulso, hacer texturas (como madera) o edificios.</p>
+                                    <ul class="list-disc pl-5 text-art-400 space-y-2">
+                                        <li>La oscuridad se consigue por la <b>proximidad</b> de las líneas.</li>
+                                        <li>Líneas juntas = más oscuridad (Sombra).</li>
+                                        <li>Líneas separadas = más claridad (Medios tonos).</li>
+                                        <li>Ayuda a estructurar claramente la zona de luz y sombra.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-art-800 rounded-xl aspect-video overflow-hidden border border-art-700">
+                                    <svg viewBox="0 0 320 180" class="w-full h-full block" role="img" aria-label="Esfera sombreada con trama paralela">
+                                        <defs>
+                                            <clipPath id="clip-hatch"><circle cx="160" cy="88" r="58"/></clipPath>
+                                            <pattern id="pat-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                                                <line x1="0" y1="0" x2="0" y2="7" stroke="#3f3f46" stroke-width="1.3"/>
+                                            </pattern>
+                                            <radialGradient id="g-hatchshade" cx="35%" cy="30%" r="80%">
+                                                <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+                                                <stop offset="55%" stop-color="#000000" stop-opacity="0.2"/>
+                                                <stop offset="100%" stop-color="#000000" stop-opacity="0.65"/>
+                                            </radialGradient>
+                                        </defs>
+                                        <rect width="320" height="180" rx="12" fill="#fafaf7"/>
+                                        <circle cx="160" cy="88" r="58" fill="#ececef"/>
+                                        <g clip-path="url(#clip-hatch)">
+                                            <rect width="320" height="180" fill="url(#pat-hatch)"/>
+                                            <circle cx="160" cy="88" r="58" fill="url(#g-hatchshade)"/>
+                                        </g>
+                                        <circle cx="160" cy="88" r="58" fill="none" stroke="#3f3f46" stroke-width="1.4"/>
+                                        <text x="160" y="171" text-anchor="middle" font-size="10" fill="#a1a1aa" font-family="Outfit, sans-serif">Líneas paralelas: juntas = sombra</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3 -->
+                        <div id="tab3" class="tab-content" role="tabpanel" aria-labelledby="btn-tab3">
+                            <h4 class="text-2xl font-serif font-bold text-white mb-4">Trama Cruzada (Cross-hatching)</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <div>
+                                    <p class="text-art-300 mb-4">Muy rápida y expresiva. Se hacen líneas en múltiples direcciones, superponiéndose unas a otras.</p>
+                                    <ul class="list-disc pl-5 text-art-400 space-y-2">
+                                        <li>Primera capa: líneas en una dirección.</li>
+                                        <li>Segunda capa: líneas cruzadas en otra dirección.</li>
+                                        <li>A mayor cantidad de cruces y más juntas estén las líneas, <b>mayor es la sensación de oscuridad</b>.</li>
+                                        <li>Excelente para bocetos rápidos del natural y para bolígrafo/tinta.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-art-800 rounded-xl aspect-video overflow-hidden border border-art-700">
+                                    <svg viewBox="0 0 320 180" class="w-full h-full block" role="img" aria-label="Esfera sombreada con trama cruzada">
+                                        <defs>
+                                            <clipPath id="clip-cross"><circle cx="160" cy="88" r="58"/></clipPath>
+                                            <pattern id="pat-cross" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                                                <line x1="0" y1="0" x2="0" y2="7" stroke="#3f3f46" stroke-width="1.3"/>
+                                            </pattern>
+                                            <pattern id="pat-cross2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+                                                <line x1="0" y1="0" x2="0" y2="7" stroke="#3f3f46" stroke-width="1.3"/>
+                                            </pattern>
+                                            <radialGradient id="g-crossshade" cx="35%" cy="30%" r="80%">
+                                                <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+                                                <stop offset="55%" stop-color="#000000" stop-opacity="0.2"/>
+                                                <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+                                            </radialGradient>
+                                        </defs>
+                                        <rect width="320" height="180" rx="12" fill="#fafaf7"/>
+                                        <circle cx="160" cy="88" r="58" fill="#ececef"/>
+                                        <g clip-path="url(#clip-cross)">
+                                            <rect width="320" height="180" fill="url(#pat-cross)"/>
+                                            <rect width="320" height="180" fill="url(#pat-cross2)" opacity="0.6"/>
+                                            <circle cx="160" cy="88" r="58" fill="url(#g-crossshade)"/>
+                                        </g>
+                                        <circle cx="160" cy="88" r="58" fill="none" stroke="#3f3f46" stroke-width="1.4"/>
+                                        <text x="160" y="171" text-anchor="middle" font-size="10" fill="#a1a1aa" font-family="Outfit, sans-serif">Cruces de líneas = más oscuridad</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 4 -->
+                        <div id="tab4" class="tab-content" role="tabpanel" aria-labelledby="btn-tab4">
+                            <h4 class="text-2xl font-serif font-bold text-white mb-4">Trama de Contorno (Contour Hatching)</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <div>
+                                    <p class="text-art-300 mb-4">Las líneas no son rectas, sino que <b>siguen el volumen o curvatura</b> del objeto que estamos dibujando.</p>
+                                    <ul class="list-disc pl-5 text-art-400 space-y-2">
+                                        <li>Si es una esfera, se dibujan líneas curvas envolventes.</li>
+                                        <li>Aporta una fuerte sensación de tridimensionalidad (3D).</li>
+                                        <li>Perfecto para texturas orgánicas: labios, manzanas, gotas de agua.</li>
+                                        <li>Crea un gran dinamismo y movimiento visual.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-art-800 rounded-xl aspect-video overflow-hidden border border-art-700">
+                                    <svg viewBox="0 0 320 180" class="w-full h-full block" role="img" aria-label="Esfera sombreada con líneas de contorno">
+                                        <defs>
+                                            <clipPath id="clip-contour"><circle cx="160" cy="88" r="58"/></clipPath>
+                                            <radialGradient id="g-contourshade" cx="35%" cy="30%" r="80%">
+                                                <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+                                                <stop offset="60%" stop-color="#000000" stop-opacity="0.18"/>
+                                                <stop offset="100%" stop-color="#000000" stop-opacity="0.55"/>
+                                            </radialGradient>
+                                        </defs>
+                                        <rect width="320" height="180" rx="12" fill="#fafaf7"/>
+                                        <circle cx="160" cy="88" r="58" fill="#f2f2f5"/>
+                                        <g clip-path="url(#clip-contour)" fill="none" stroke="#3f3f46" stroke-width="1.3">
+                                            <ellipse cx="160" cy="46" rx="40" ry="12"/>
+                                            <ellipse cx="160" cy="60" rx="50" ry="12"/>
+                                            <ellipse cx="160" cy="74" rx="56" ry="12"/>
+                                            <ellipse cx="160" cy="88" rx="58" ry="12"/>
+                                            <ellipse cx="160" cy="102" rx="56" ry="12"/>
+                                            <ellipse cx="160" cy="116" rx="50" ry="12"/>
+                                            <ellipse cx="160" cy="130" rx="40" ry="12"/>
+                                            <ellipse cx="160" cy="88" rx="12" ry="58"/>
+                                            <ellipse cx="160" cy="88" rx="24" ry="58"/>
+                                            <ellipse cx="160" cy="88" rx="36" ry="58"/>
+                                            <ellipse cx="160" cy="88" rx="48" ry="58"/>
+                                        </g>
+                                        <circle cx="160" cy="88" r="58" fill="url(#g-contourshade)"/>
+                                        <circle cx="160" cy="88" r="58" fill="none" stroke="#3f3f46" stroke-width="1.4"/>
+                                        <text x="160" y="171" text-anchor="middle" font-size="10" fill="#a1a1aa" font-family="Outfit, sans-serif">Las líneas siguen la curvatura del objeto</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 5 -->
+                        <div id="tab5" class="tab-content" role="tabpanel" aria-labelledby="btn-tab5">
+                            <h4 class="text-2xl font-serif font-bold text-white mb-4">Trama Variada y Puntillismo</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <div>
+                                    <p class="text-art-300 mb-4">Repetición de un patrón específico (puntos, líneas cortas, líneas irregulares "temblorosas" o pequeños rulos) para generar valor tonal.</p>
+                                    <ul class="list-disc pl-5 text-art-400 space-y-2">
+                                        <li><b>Puntillismo:</b> Puntos juntos oscurecen, puntos separados aclaran. Es laborioso pero muy impactante.</li>
+                                        <li><b>Rulitos/Garabatos:</b> Hacer rulos continuos sin levantar el lápiz para una textura caótica pero controlada.</li>
+                                        <li>Ideal para texturas rugosas, follaje de árboles o tierra.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-art-800 rounded-xl aspect-video overflow-hidden border border-art-700">
+                                    <svg viewBox="0 0 320 180" class="w-full h-full block" role="img" aria-label="Esfera sombreada con puntillismo">
+                                        <defs>
+                                            <pattern id="pat-dots" width="6" height="6" patternUnits="userSpaceOnUse">
+                                                <circle cx="3" cy="3" r="1.3" fill="#3f3f46"/>
+                                            </pattern>
+                                            <radialGradient id="g-dotdensity" gradientUnits="userSpaceOnUse" cx="160" cy="88" r="62" fx="128" fy="60">
+                                                <stop offset="0%" stop-color="#000000"/>
+                                                <stop offset="45%" stop-color="#222222"/>
+                                                <stop offset="75%" stop-color="#777777"/>
+                                                <stop offset="100%" stop-color="#ffffff"/>
+                                            </radialGradient>
+                                            <mask id="mask-dots">
+                                                <circle cx="160" cy="88" r="58" fill="#000000"/>
+                                                <circle cx="160" cy="88" r="58" fill="url(#g-dotdensity)"/>
+                                            </mask>
+                                        </defs>
+                                        <rect width="320" height="180" rx="12" fill="#fafaf7"/>
+                                        <circle cx="160" cy="88" r="58" fill="#f2f2f5"/>
+                                        <circle cx="160" cy="88" r="58" fill="url(#pat-dots)" mask="url(#mask-dots)"/>
+                                        <circle cx="160" cy="88" r="58" fill="none" stroke="#3f3f46" stroke-width="1.4"/>
+                                        <text x="160" y="171" text-anchor="middle" font-size="10" fill="#a1a1aa" font-family="Outfit, sans-serif">Puntos juntos oscurecen, separados aclaran</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Shading Tip -->
+                <div class="mt-8 bg-art-800 border-l-4 border-yellow-500 p-6 rounded-r-xl reveal">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="lightbulb" class="text-yellow-500 w-8 h-8 shrink-0 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">El Secreto de la Sombra y la Luz</h4>
+                            <p class="text-art-300">
+                                Siempre aplica el grafito "acariciando" el papel (lápiz inclinado) para no dañar los poros de la hoja. Recuerda que la luz refleja: además de la sombra propia y proyectada, siempre existe una <b>luz de rebote</b> en el borde oscuro del objeto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Más lecciones · Nivel 1 -->
+                <div class="mt-12 reveal">
+                    <h4 class="text-2xl font-bold text-white mb-1 flex items-center gap-2">
+                        <i data-lucide="layers" class="text-art-accent"></i> Más lecciones · Nivel 1
+                    </h4>
+                    <p class="text-art-300 text-sm mb-6">Suelta la mano con ejercicios de caligrafía antes de sombrear.</p>
+                    <details class="group bg-art-800 border border-art-700 rounded-xl cursor-pointer">
+                        <summary class="font-bold text-lg text-white p-6 flex justify-between items-center gap-4 outline-none">
+                            <span class="flex items-center gap-2 flex-wrap">
+                                <i data-lucide="pencil-line" class="text-art-accent"></i> Control del trazo: la caligrafía del dibujo
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-2 py-0.5">Nivel 1</span>
+                            </span>
+                            <i data-lucide="chevron-down" class="summary-chevron text-art-400 shrink-0"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-art-300 text-sm space-y-2">
+                            <p>Antes de sombrear, entrena el pulso. 10 minutos al día bastan:</p>
+                            <ul class="list-disc pl-5">
+                                <li><b>Líneas rectas:</b> traza de izquierda a derecha en un solo movimiento, sin parar ni levantar el lápiz.</li>
+                                <li><b>Líneas diagonales:</b> alterna inclinación (45° y 30°) sin girar la hoja.</li>
+                                <li><b>Curvas y bucles:</b> repite "eses" y círculos concéntricos hasta que salgan fluidos.</li>
+                                <li><b>Presión progresiva:</b> haz una barra que va de claro a oscuro solo variando la fuerza.</li>
+                            </ul>
+                            <p><b>Clave:</b> la calidad de una línea no es su rectitud perfecta, sino su <b>decisión</b>. Una línea dudosa se ve temblorosa; una rápida, aunque se desvíe, se ve firme.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="luz" class="py-20 bg-art-950 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-art-400 uppercase mb-2">Iluminación</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-white">Luz y Sombra</h3>
+                    <p class="mt-4 text-art-300 max-w-2xl mx-auto">La luz es la que crea volumen. Aprende a leerla: de dónde viene, qué tan dura es y qué sombras proyecta.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 reveal">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-art-900 border border-art-800 flex items-center justify-center shrink-0">
+                                <i data-lucide="sun" class="w-6 h-6 text-yellow-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Luz dura vs. luz suave</h4>
+                                <p class="text-art-300 text-sm mt-1">El sol de mediodía o un foco directo dan <b>luz dura</b>: sombras con borde definido y mucho drama. Un día nublado o una ventana grande dan <b>luz suave</b>: transiciones graduales, ideal para retratos delicados.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-art-900 border border-art-800 flex items-center justify-center shrink-0">
+                                <i data-lucide="circle" class="w-6 h-6 text-art-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Sombra propia y proyectada</h4>
+                                <p class="text-art-300 text-sm mt-1">La <b>sombra propia</b> es la parte del objeto que no recibe luz; la <b>proyectada</b> es la que el objeto lanza sobre el suelo o sobre otros objetos. La proyectada suele ser más oscura cerca del objeto y más clara al alejarse.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-art-900 border border-art-800 flex items-center justify-center shrink-0">
+                                <i data-lucide="rotate-ccw" class="w-6 h-6 text-art-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">La luz de rebote</h4>
+                                <p class="text-art-300 text-sm mt-1">La luz rebota en el suelo o en objetos cercanos e ilumina ligeramente el borde oscuro. Ese reflejo sutil evita que las sombras se vean "pegadas" y da ese acabado realista que buscas.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-art-900 border border-art-800 flex items-center justify-center shrink-0">
+                                <i data-lucide="slash" class="w-6 h-6 text-art-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">El terminator</h4>
+                                <p class="text-art-300 text-sm mt-1">Es la línea donde la luz deja de tocar el objeto. Su dureza determina si la luz es dura o suave. Busca el terminator antes de sombrear: define dónde empieza tu sombra.</p>
+                            </div>
+                        </div>
+                        <div class="bg-art-900 border border-art-800 rounded-xl p-5">
+                            <p class="text-art-300 text-sm"><b class="text-art-accent">Ejercicio:</b> pon un huevo blanco junto a una ventana y otro bajo un foco. Dibuja ambos: verás en directo la diferencia entre luz suave y luz dura.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-4 border border-art-800 shadow-xl reveal" style="transition-delay: 120ms;">
+                        <svg viewBox="0 0 480 300" class="w-full h-auto block rounded-xl" role="img" aria-label="Comparación entre luz dura y luz suave sobre dos esferas">
+                            <defs>
+                                <linearGradient id="hard-g" x1="0.1" y1="0.1" x2="0.9" y2="0.9">
+                                    <stop offset="0%" stop-color="#f8f8fb"/>
+                                    <stop offset="40%" stop-color="#e2e2e8"/>
+                                    <stop offset="42%" stop-color="#4b4b55"/>
+                                    <stop offset="100%" stop-color="#26262e"/>
+                                </linearGradient>
+                                <radialGradient id="soft-g" cx="32%" cy="28%" r="85%">
+                                    <stop offset="0%" stop-color="#ffffff"/>
+                                    <stop offset="42%" stop-color="#dcdce3"/>
+                                    <stop offset="78%" stop-color="#7a7a85"/>
+                                    <stop offset="100%" stop-color="#33333c"/>
+                                </radialGradient>
+                            </defs>
+                            <rect width="480" height="300" fill="#fafaf7"/>
+                            <g stroke="#fbbf24" stroke-width="3" fill="none" stroke-linecap="round">
+                                <line x1="12" y1="40" x2="78" y2="96"/>
+                                <line x1="12" y1="52" x2="92" y2="116"/>
+                            </g>
+                            <polygon points="78,96 92,116 96,94" fill="#fbbf24"/>
+                            <line x1="0" y1="215" x2="480" y2="215" stroke="#d9d9de" stroke-width="1.5"/>
+                            <ellipse cx="130" cy="212" rx="56" ry="11" fill="#0f1014" opacity="0.35"/>
+                            <circle cx="130" cy="155" r="54" fill="url(#hard-g)"/>
+                            <ellipse cx="103" cy="126" rx="12" ry="7" fill="#ffffff" transform="rotate(-35 103 126)" opacity="0.95"/>
+                            <path d="M150 204 A 44 42 0 0 0 168 180" stroke="#a9b0c4" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <text x="130" y="240" text-anchor="middle" font-size="11" font-weight="600" fill="#6b7280" font-family="Outfit, sans-serif">Luz dura</text>
+                            <text x="130" y="256" text-anchor="middle" font-size="9" fill="#9ca3af" font-family="Outfit, sans-serif">Borde definido (terminator duro)</text>
+                            <g stroke="#fbbf24" stroke-width="3" fill="none" stroke-linecap="round">
+                                <line x1="330" y1="30" x2="360" y2="86"/>
+                            </g>
+                            <polygon points="360,86 366,64 350,72" fill="#fbbf24"/>
+                            <ellipse cx="360" cy="214" rx="70" ry="14" fill="#0f1014" opacity="0.15"/>
+                            <circle cx="360" cy="155" r="54" fill="url(#soft-g)"/>
+                            <ellipse cx="334" cy="128" rx="10" ry="6" fill="#ffffff" transform="rotate(-35 334 128)"/>
+                            <text x="360" y="240" text-anchor="middle" font-size="11" font-weight="600" fill="#6b7280" font-family="Outfit, sans-serif">Luz suave</text>
+                            <text x="360" y="256" text-anchor="middle" font-size="9" fill="#9ca3af" font-family="Outfit, sans-serif">Transición gradual (terminator suave)</text>
+                            <text x="96" y="200" font-size="8.5" fill="#9ca3af" font-family="Outfit, sans-serif">rebote</text>
+                            <text x="260" y="120" font-size="10" fill="#6b7280" font-family="Outfit, sans-serif">dirección de la luz</text>
+                            <text x="260" y="285" text-anchor="middle" font-size="10" fill="#a1a1aa" font-family="Outfit, sans-serif">Busca el terminator antes de empezar a sombrear</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1b1f] pt-14 pb-8 border-t border-art-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <span class="w-9 h-9 rounded-lg bg-art-800 flex items-center justify-center">
+                            <i data-lucide="palette" class="text-art-accent w-5 h-5"></i>
+                        </span>
+                        <span class="font-serif font-bold text-xl text-white">DominaElLápiz</span>
+                    </div>
+                    <p class="text-art-500 text-sm max-w-md leading-relaxed">
+                        Una guía gratuita para aprender a dibujar desde cero: materiales, sombreado, color, anatomía y perspectiva. La práctica es la clave: ¡toma un lápiz y dibuja!
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Explorar</h4>
+                    <ul class="space-y-2.5 text-sm text-art-400">
+                        <li><a href="index.html#ruta" class="hover:text-art-accent transition-colors">Tu ruta de aprendizaje</a></li>
+                        <li><a href="materiales.html" class="hover:text-art-accent transition-colors">Materiales</a></li>
+                        <li><a href="sombreado.html" class="hover:text-art-accent transition-colors">Técnicas de Sombreado</a></li>
+                        <li><a href="materiales.html#valor" class="hover:text-art-accent transition-colors">Valor tonal</a></li>
+                        <li><a href="sombreado.html#luz" class="hover:text-art-accent transition-colors">Luz y sombra</a></li>
+                        <li><a href="color.html" class="hover:text-art-accent transition-colors">Teoría del Color</a></li>
+                        <li><a href="anatomia.html" class="hover:text-art-accent transition-colors">Anatomía &amp; Rostro</a></li>
+                        <li><a href="perspectiva.html" class="hover:text-art-accent transition-colors">Perspectiva</a></li>
+                        <li><a href="perspectiva.html#composicion" class="hover:text-art-accent transition-colors">Composición</a></li>
+                        <li><a href="perspectiva.html#texturas" class="hover:text-art-accent transition-colors">Texturas</a></li>
+                        <li><a href="anatomia.html#retrato" class="hover:text-art-accent transition-colors">Retrato paso a paso</a></li>
+                        <li><a href="plan.html#practica" class="hover:text-art-accent transition-colors">Zona de práctica</a></li>
+                        <li><a href="plan.html#quiz" class="hover:text-art-accent transition-colors">Evaluación</a></li>
+                        <li><a href="plan.html#plan" class="hover:text-art-accent transition-colors">Tu plan de práctica</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Maestros</h4>
+                    <ul class="space-y-2.5 text-sm text-art-400">
+                        <li><a href="https://www.youtube.com/@SirPino" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Sir Pino</a></li>
+                        <li><a href="https://www.youtube.com/user/McFinnegan1973" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Arte Vivo y Divertido</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCKVnXjD1Y27s99WD4p9Uveg" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Agata del Barco</a></li>
+                        <li><a href="plan.html#recursos" class="hover:text-art-accent transition-colors">Todos los recursos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-art-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p class="text-art-500 text-sm">© 2026 DominaElLápiz. Hecho para aprender.</p>
+                <a href="index.html" class="inline-flex items-center gap-2 text-sm text-art-400 hover:text-art-accent transition-colors">
+                    Volver arriba
+                    <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-art-950 text-white shadow-lg hover:bg-art-800 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center" aria-label="Volver arriba">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

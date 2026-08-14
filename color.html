@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoría del Color | DominaElLápiz</title>
+    <meta name="description" content="Rueda cromática, mezclas RGB y CMYK, armonías, degradados y atmósfera: domina el color en tus dibujos.">
+    <meta name="theme-color" content="#232429">
+    <meta property="og:title" content="DominaElLápiz — Aprende a dibujar desde cero">
+    <meta property="og:description" content="Masterclass gratuita de arte: materiales, sombreado, teoría del color, anatomía del rostro y perspectiva.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='8' width='84' height='84' rx='22' fill='%233b82f6'/%3E%3Cpath d='M32 68 L52 28 L74 68 Z' fill='white'/%3E%3Crect x='58' y='44' width='9' height='34' rx='4' fill='white'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind custom config -->
+    <script src="js/tailwind.config.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-art-50 text-art-900 font-sans antialiased overflow-x-hidden">
+
+    <!-- Skip link -->
+    <a href="#contenido" class="skip-link sr-only">Saltar al contenido principal</a>
+
+    <!-- Reading progress bar -->
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-art-accent z-[60] w-0" aria-hidden="true"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar" aria-label="Navegación principal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-2.5" aria-label="DominaElLápiz, inicio">
+                    <span class="w-10 h-10 rounded-xl bg-art-950 flex items-center justify-center shadow-sm">
+                        <i data-lucide="palette" class="text-art-accent w-6 h-6"></i>
+                    </span>
+                    <span class="font-serif font-bold text-2xl tracking-tight text-art-950">DominaElLápiz</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="index.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Inicio</a>
+                    <a href="materiales.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Materiales</a>
+                    <a href="sombreado.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Sombreado</a>
+                    <a href="color.html" class="nav-link page-active text-art-900 hover:text-art-accent font-medium transition-colors" aria-current="page">Color</a>
+                    <a href="anatomia.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Anatomía</a>
+                    <a href="perspectiva.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Perspectiva</a>
+                    <a href="plan.html#plan" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Tu plan</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-art-800 hover:text-art-accent focus:outline-none p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-t border-art-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Inicio</a>
+                <a href="index.html#ruta" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Tu ruta de aprendizaje</a>
+                <a href="materiales.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Materiales</a>
+                <a href="sombreado.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Técnicas de Sombreado</a>
+                <a href="materiales.html#valor" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Valor tonal</a>
+                <a href="sombreado.html#luz" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Luz y sombra</a>
+                <a href="color.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-accent bg-art-50 hover:bg-art-50">Teoría del Color</a>
+                <a href="anatomia.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Anatomía &amp; Rostro</a>
+                <a href="perspectiva.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Perspectiva</a>
+                <a href="perspectiva.html#composicion" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Composición</a>
+                <a href="perspectiva.html#texturas" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Texturas</a>
+                <a href="anatomia.html#retrato" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Retrato paso a paso</a>
+                <a href="plan.html#practica" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Zona de práctica</a>
+                <a href="plan.html#quiz" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Evaluación</a>
+                <a href="plan.html#plan" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Tu plan de práctica</a>
+                <a href="plan.html#recursos" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Recursos y creadores</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido">
+
+        <section id="color" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-art-accent uppercase mb-2">Fundamentos</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-art-950">Teoría del Color</h3>
+                    <p class="mt-4 text-art-600 max-w-2xl mx-auto">Entiende cómo se comportan los colores, cómo mezclarlos y cómo evitar colores sucios o sin vida.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 reveal">
+                    <div class="order-2 lg:order-1">
+                        <h4 class="text-2xl font-bold text-art-900 mb-6">Sistemas de Color</h4>
+                        <div class="space-y-6">
+                            <div class="flex gap-5">
+                                <div class="flex items-center">
+                                    <div class="relative w-12 h-12 rounded-full bg-black shrink-0 shadow-md">
+                                        <div class="absolute inset-0 w-12 h-12 rounded-full bg-red-500 mix-blend-screen"></div>
+                                        <div class="absolute inset-0 w-12 h-12 rounded-full bg-green-500 mix-blend-screen"></div>
+                                        <div class="absolute inset-0 w-12 h-12 rounded-full bg-blue-500 mix-blend-screen"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg text-art-800">RGB (Aditivo · Pantallas)</h5>
+                                    <p class="text-art-600">Añade luz. Primarios: Rojo, Verde, Azul. Se combinan para generar luz blanca. Solo se usa para arte digital.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-5">
+                                <div class="flex items-center">
+                                    <div class="relative w-12 h-12 rounded-full bg-white shrink-0 border border-art-200 shadow-md overflow-hidden">
+                                        <div class="absolute inset-0 w-12 h-12 rounded-full bg-cyan-400 mix-blend-multiply"></div>
+                                        <div class="absolute inset-0 w-12 h-12 rounded-full bg-fuchsia-500 mix-blend-multiply"></div>
+                                        <div class="absolute inset-0 w-12 h-12 rounded-full bg-yellow-400 mix-blend-multiply"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg text-art-800">CMYK (Sustractivo · Pigmentos)</h5>
+                                    <p class="text-art-600">Sustrae luz. Primarios reales en pintura: <b>Cian, Magenta y Amarillo</b>. Con ellos se logran mezclas más amplias y puras que con el rojo y azul tradicional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 bg-art-50 p-8 rounded-2xl border border-art-100 text-center">
+                        <div class="color-wheel mx-auto mb-5" aria-hidden="true"></div>
+                        <h4 class="font-bold text-lg mb-2">Tono, Saturación y Brillo</h4>
+                        <p class="text-art-600 text-sm">
+                            <b>Tono:</b> El color en su estado puro.<br>
+                            <b>Saturación:</b> Intensidad o pureza del color.<br>
+                            <b>Brillo/Valor:</b> Cantidad de blanco o negro (claridad u oscuridad).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Color Rules Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+                    <div class="bg-white rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-art-100">
+                        <h4 class="font-bold text-xl text-art-900 mb-3 border-b pb-2">1. Colores Análogos</h4>
+                        <p class="text-art-600 mb-4 text-sm">Están juntos en la rueda cromática (ej. Rojo, Naranja, Amarillo). Generan gran armonía visual.</p>
+                        <div class="bg-art-50 p-3 rounded-lg border border-art-100 text-sm">
+                            <strong class="text-art-800">Truco de Pintura:</strong> Úsalos para <b>aclarar</b> colores sin usar blanco (el blanco quita saturación y pasteliza). Ej: Aclara un rojo usando amarillo, quedará un naranja vibrante.
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-art-100">
+                        <h4 class="font-bold text-xl text-art-900 mb-3 border-b pb-2">2. Colores Complementarios</h4>
+                        <p class="text-art-600 mb-4 text-sm">Están opuestos en la rueda cromática (ej. Amarillo y Morado, Rojo y Verde). Generan máximo contraste.</p>
+                        <div class="bg-art-50 p-3 rounded-lg border border-art-100 text-sm">
+                            <strong class="text-art-800">Truco de Pintura:</strong> Úsalos para <b>oscurecer y sombrear</b> colores sin usar negro. El negro ensucia y "mata" el color. Un amarillo oscurecido con morado se vuelve un ocre natural (color quebrado).
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-art-100">
+                        <h4 class="font-bold text-xl text-art-900 mb-3 border-b pb-2">3. Contraste Simultáneo</h4>
+                        <p class="text-art-600 mb-4 text-sm">Nuestra percepción del color es engañosa; un color se ve distinto dependiendo del fondo que lo rodea.</p>
+                        <div class="bg-art-50 p-3 rounded-lg border border-art-100 text-sm">
+                            <strong class="text-art-800">Truco de Pintura:</strong> Evita el lienzo blanco puro. Pinta siempre una base de color ("infrapintura") o usa una paleta gris. Un fondo blanco te engañará haciéndote elegir tonos erróneos.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Más lecciones de color -->
+                <div class="mt-14 reveal">
+                    <h4 class="text-2xl font-bold text-art-900 mb-1 flex items-center gap-2">
+                        <i data-lucide="layers" class="text-art-accent"></i> Más lecciones de color
+                    </h4>
+                    <p class="text-art-600 text-sm mb-6">Del degradado básico a la atmósfera: tres niveles del mismo tema.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <details class="group bg-art-50 rounded-xl border border-art-200 shadow-sm cursor-pointer" open>
+                            <summary class="font-bold text-lg text-art-900 p-6 flex justify-between items-center gap-4 outline-none">
+                                <span class="flex items-center gap-2 flex-wrap">
+                                    <i data-lucide="arrow-down-wide-narrow" class="text-art-accent"></i> Degradados y mezclas
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100 rounded-full px-2 py-0.5">Nivel 1</span>
+                                </span>
+                                <i data-lucide="chevron-down" class="summary-chevron text-art-500 shrink-0"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-art-600 text-sm space-y-2">
+                                <ul class="list-disc pl-5">
+                                    <li><b>Degradado de un color:</b> varía solo la presión, de claro a oscuro, en pasadas superpuestas.</li>
+                                    <li><b>Mezcla óptica:</b> trazos paralelos de dos colores se funden en la vista (ej. azul y amarillo parecen verde).</li>
+                                    <li><b>Capas:</b> aplica colores suaves en capas finas; evita apretar el lápiz desde el inicio.</li>
+                                </ul>
+                                <p><b>Ejercicio:</b> dibuja una barra de azul a amarillo en 10 pasos: primero sola y luego con superposición central para el verde.</p>
+                            </div>
+                        </details>
+
+                        <details class="group bg-art-50 rounded-xl border border-art-200 shadow-sm cursor-pointer">
+                            <summary class="font-bold text-lg text-art-900 p-6 flex justify-between items-center gap-4 outline-none">
+                                <span class="flex items-center gap-2 flex-wrap">
+                                    <i data-lucide="palette" class="text-art-accent"></i> Armonías de color
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-art-accent bg-art-100 rounded-full px-2 py-0.5">Nivel 2</span>
+                                </span>
+                                <i data-lucide="chevron-down" class="summary-chevron text-art-500 shrink-0"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-art-600 text-sm space-y-2">
+                                <ul class="list-disc pl-5">
+                                    <li><b>Monocromática:</b> un solo color en varios valores. Elegante y fácil de dominar.</li>
+                                    <li><b>Análoga:</b> colores vecinos en la rueda (azul, cian, verde). Transmite calma.</li>
+                                    <li><b>Complementaria:</b> opuestos (naranja y azul). Máximo contraste y energía.</li>
+                                    <li><b>Triada:</b> tres colores a 120° en la rueda (rojo, amarillo, azul). Equilibrada y viva.</li>
+                                </ul>
+                                <p><b>Regla 60-30-10:</b> 60% color dominante, 30% secundario y 10% de acento. Aplica en tus dibujos de paisaje.</p>
+                            </div>
+                        </details>
+
+                        <details class="group bg-art-50 rounded-xl border border-art-200 shadow-sm cursor-pointer">
+                            <summary class="font-bold text-lg text-art-900 p-6 flex justify-between items-center gap-4 outline-none">
+                                <span class="flex items-center gap-2 flex-wrap">
+                                    <i data-lucide="cloud-sun" class="text-art-accent"></i> Atmósfera y temperatura
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-purple-700 bg-purple-100 rounded-full px-2 py-0.5">Nivel 3</span>
+                                </span>
+                                <i data-lucide="chevron-down" class="summary-chevron text-art-500 shrink-0"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-art-600 text-sm space-y-2">
+                                <p>Los colores "calientes" (rojos, naranjas) avanzan y emocionan; los "fríos" (azules, verdes) retroceden y calman. Juega con la temperatura para crear profundidad y humor:</p>
+                                <ul class="list-disc pl-5">
+                                    <li><b>Profundidad:</b> los objetos lejanos se vuelven más fríos, grises y de menor contraste (perspectiva aérea).</li>
+                                    <li><b>Humor:</b> una escena fría y apagada transmite soledad; una cálida y saturada, alegría o tensión.</li>
+                                    <li><b>Sombra y luz:</b> las sombras al aire libre suelen ser frías (azuladas) incluso si la luz es cálida.</li>
+                                </ul>
+                                <p><b>Reto:</b> dibuja la misma escena dos veces: una en clave cálida y otra en clave fría. Compara el efecto emocional.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1b1f] pt-14 pb-8 border-t border-art-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <span class="w-9 h-9 rounded-lg bg-art-800 flex items-center justify-center">
+                            <i data-lucide="palette" class="text-art-accent w-5 h-5"></i>
+                        </span>
+                        <span class="font-serif font-bold text-xl text-white">DominaElLápiz</span>
+                    </div>
+                    <p class="text-art-500 text-sm max-w-md leading-relaxed">
+                        Una guía gratuita para aprender a dibujar desde cero: materiales, sombreado, color, anatomía y perspectiva. La práctica es la clave: ¡toma un lápiz y dibuja!
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Explorar</h4>
+                    <ul class="space-y-2.5 text-sm text-art-400">
+                        <li><a href="index.html#ruta" class="hover:text-art-accent transition-colors">Tu ruta de aprendizaje</a></li>
+                        <li><a href="materiales.html" class="hover:text-art-accent transition-colors">Materiales</a></li>
+                        <li><a href="sombreado.html" class="hover:text-art-accent transition-colors">Técnicas de Sombreado</a></li>
+                        <li><a href="materiales.html#valor" class="hover:text-art-accent transition-colors">Valor tonal</a></li>
+                        <li><a href="sombreado.html#luz" class="hover:text-art-accent transition-colors">Luz y sombra</a></li>
+                        <li><a href="color.html" class="hover:text-art-accent transition-colors">Teoría del Color</a></li>
+                        <li><a href="anatomia.html" class="hover:text-art-accent transition-colors">Anatomía &amp; Rostro</a></li>
+                        <li><a href="perspectiva.html" class="hover:text-art-accent transition-colors">Perspectiva</a></li>
+                        <li><a href="perspectiva.html#composicion" class="hover:text-art-accent transition-colors">Composición</a></li>
+                        <li><a href="perspectiva.html#texturas" class="hover:text-art-accent transition-colors">Texturas</a></li>
+                        <li><a href="anatomia.html#retrato" class="hover:text-art-accent transition-colors">Retrato paso a paso</a></li>
+                        <li><a href="plan.html#practica" class="hover:text-art-accent transition-colors">Zona de práctica</a></li>
+                        <li><a href="plan.html#quiz" class="hover:text-art-accent transition-colors">Evaluación</a></li>
+                        <li><a href="plan.html#plan" class="hover:text-art-accent transition-colors">Tu plan de práctica</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Maestros</h4>
+                    <ul class="space-y-2.5 text-sm text-art-400">
+                        <li><a href="https://www.youtube.com/@SirPino" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Sir Pino</a></li>
+                        <li><a href="https://www.youtube.com/user/McFinnegan1973" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Arte Vivo y Divertido</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCKVnXjD1Y27s99WD4p9Uveg" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Agata del Barco</a></li>
+                        <li><a href="plan.html#recursos" class="hover:text-art-accent transition-colors">Todos los recursos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-art-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p class="text-art-500 text-sm">© 2026 DominaElLápiz. Hecho para aprender.</p>
+                <a href="index.html" class="inline-flex items-center gap-2 text-sm text-art-400 hover:text-art-accent transition-colors">
+                    Volver arriba
+                    <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-art-950 text-white shadow-lg hover:bg-art-800 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center" aria-label="Volver arriba">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

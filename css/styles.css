@@ -1,0 +1,212 @@
+/* ============================================================
+   DominaElLápiz — Custom styles
+   ============================================================ */
+
+/* Scroll offset for the fixed navbar when using anchor links */
+section[id] {
+    scroll-margin-top: 5.5rem;
+}
+
+/* Glassmorphism navbar */
+.glass {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+#navbar.scrolled {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Nav links with animated underline + active state (scrollspy) */
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    border-radius: 2px;
+    background: #3b82f6;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after,
+.nav-link.page-active::after {
+    transform: scaleX(1);
+}
+.nav-link.active {
+    color: #3b82f6;
+}
+
+/* Reveal-on-scroll animations (only when JS is enabled) */
+html.js .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+html.js .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tabs (sombreado) */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.45s ease both;
+}
+.tab-content.active {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.tab-btn {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.tab-btn.tab-active {
+    background-color: #36373f;
+    color: #ffffff;
+    border-left-color: #3b82f6;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile menu slide-down */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+.mobile-menu.open {
+    max-height: 30rem;
+}
+
+/* Back-to-top button */
+#back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Accordions (details/summary) */
+details > summary {
+    list-style: none;
+    cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+.summary-chevron {
+    transition: transform 0.25s ease;
+}
+details[open] .summary-chevron {
+    transform: rotate(180deg);
+}
+
+/* Color wheel (Teoría del Color) */
+.color-wheel {
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 9999px;
+    background: conic-gradient(
+        #f43f5e 0deg, #f97316 60deg, #facc15 120deg,
+        #22c55e 180deg, #06b6d4 240deg, #6366f1 300deg, #f43f5e 360deg
+    );
+    -webkit-mask: radial-gradient(circle, transparent 0 42%, #000 44% 100%);
+    mask: radial-gradient(circle, transparent 0 42%, #000 44% 100%);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Demo "paper" background for the SVG illustrations */
+.paper {
+    background: #fafaf7;
+}
+
+/* Accessibility */
+:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+.skip-link:focus {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    background: #111827;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #babbc4;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #777989;
+}
+
+/* Zona de práctica */
+#practice-canvas {
+    touch-action: none;
+}
+.mode-btn.active {
+    background-color: #36373f;
+    border-color: #36373f;
+    color: #fff;
+}
+.mode-btn.active:hover {
+    border-color: #3b82f6;
+}
+.mode-btn.active svg {
+    color: #3b82f6;
+}
+
+/* Quiz: respuesta seleccionada */
+.quiz-option:has(input:checked) {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+}
+.quiz-tab.active-tab {
+    background-color: #111827;
+    border-color: #111827;
+    color: #ffffff;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    html.js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+    html {
+        scroll-behavior: auto !important;
+    }
+}

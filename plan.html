@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Plan de Práctica y Evaluación | DominaElLápiz</title>
+    <meta name="description" content="Tu checklist de ejercicios, la zona de práctica interactiva con canvas y el quiz de autoevaluación por módulo.">
+    <meta name="theme-color" content="#232429">
+    <meta property="og:title" content="DominaElLápiz — Aprende a dibujar desde cero">
+    <meta property="og:description" content="Masterclass gratuita de arte: materiales, sombreado, teoría del color, anatomía del rostro y perspectiva.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='8' width='84' height='84' rx='22' fill='%233b82f6'/%3E%3Cpath d='M32 68 L52 28 L74 68 Z' fill='white'/%3E%3Crect x='58' y='44' width='9' height='34' rx='4' fill='white'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind custom config -->
+    <script src="js/tailwind.config.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-art-50 text-art-900 font-sans antialiased overflow-x-hidden">
+
+    <!-- Skip link -->
+    <a href="#contenido" class="skip-link sr-only">Saltar al contenido principal</a>
+
+    <!-- Reading progress bar -->
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-art-accent z-[60] w-0" aria-hidden="true"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar" aria-label="Navegación principal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-2.5" aria-label="DominaElLápiz, inicio">
+                    <span class="w-10 h-10 rounded-xl bg-art-950 flex items-center justify-center shadow-sm">
+                        <i data-lucide="palette" class="text-art-accent w-6 h-6"></i>
+                    </span>
+                    <span class="font-serif font-bold text-2xl tracking-tight text-art-950">DominaElLápiz</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="index.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Inicio</a>
+                    <a href="materiales.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Materiales</a>
+                    <a href="sombreado.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Sombreado</a>
+                    <a href="color.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Color</a>
+                    <a href="anatomia.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Anatomía</a>
+                    <a href="perspectiva.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Perspectiva</a>
+                    <a href="plan.html#plan" class="nav-link page-active text-art-900 hover:text-art-accent font-medium transition-colors" aria-current="page">Tu plan</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-art-800 hover:text-art-accent focus:outline-none p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-t border-art-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Inicio</a>
+                <a href="index.html#ruta" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Tu ruta de aprendizaje</a>
+                <a href="materiales.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Materiales</a>
+                <a href="sombreado.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Técnicas de Sombreado</a>
+                <a href="materiales.html#valor" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Valor tonal</a>
+                <a href="sombreado.html#luz" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Luz y sombra</a>
+                <a href="color.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Teoría del Color</a>
+                <a href="anatomia.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Anatomía &amp; Rostro</a>
+                <a href="perspectiva.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Perspectiva</a>
+                <a href="perspectiva.html#composicion" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Composición</a>
+                <a href="perspectiva.html#texturas" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Texturas</a>
+                <a href="anatomia.html#retrato" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Retrato paso a paso</a>
+                <a href="plan.html#practica" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Zona de práctica</a>
+                <a href="plan.html#quiz" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Evaluación</a>
+                <a href="plan.html#plan" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-accent bg-art-50 hover:bg-art-50">Tu plan de práctica</a>
+                <a href="plan.html#recursos" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Recursos y creadores</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido">
+
+        <section id="plan" class="py-20 bg-art-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-art-accent uppercase mb-2">Practica</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-art-950">Tu Plan de Práctica</h3>
+                    <p class="mt-4 text-art-600 max-w-2xl mx-auto">Marca los ejercicios a medida que los completes. Tu progreso se guarda automáticamente en este dispositivo.</p>
+                </div>
+
+                <!-- Progress -->
+                <div class="bg-white rounded-2xl p-6 border border-art-200 shadow-sm mb-6 reveal">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="font-bold text-art-900 flex items-center gap-2">
+                            <i data-lucide="list-checks" class="text-art-accent w-5 h-5"></i>
+                            Tu progreso
+                        </span>
+                        <span id="practice-count" class="text-sm font-medium text-art-600">0 de 8 ejercicios</span>
+                    </div>
+                    <div class="h-3 bg-art-100 rounded-full overflow-hidden">
+                        <div id="practice-progress-fill" class="h-full bg-art-accent rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <button id="practice-reset" class="inline-flex items-center gap-2 text-sm font-medium text-art-500 hover:text-art-900 transition-colors">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            Reiniciar progreso
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Checklist -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal" style="transition-delay: 100ms;">
+                    <label class="flex items-start gap-3 bg-white rounded-xl p-4 border border-art-100 cursor-pointer hover:border-art-accent transition-colors shadow-sm">
+                        <input type="checkbox" data-practice="mat" class="practice-check accent-blue-600 w-5 h-5 mt-0.5 shrink-0">
+                        <span class="text-art-700 text-sm leading-relaxed"><b>Consigue tus materiales</b> básicos: HB, 2B, 6B, goma moldeable y difumino.</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white rounded-xl p-4 border border-art-100 cursor-pointer hover:border-art-accent transition-colors shadow-sm">
+                        <input type="checkbox" data-practice="escala" class="practice-check accent-blue-600 w-5 h-5 mt-0.5 shrink-0">
+                        <span class="text-art-700 text-sm leading-relaxed"><b>Escala de grises:</b> dibuja una escala de 10 tonos con tus lápices H y B.</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white rounded-xl p-4 border border-art-100 cursor-pointer hover:border-art-accent transition-colors shadow-sm">
+                        <input type="checkbox" data-practice="sombra5" class="practice-check accent-blue-600 w-5 h-5 mt-0.5 shrink-0">
+                        <span class="text-art-700 text-sm leading-relaxed"><b>Prueba las 5 técnicas</b> de sombreado sobre la misma esfera.</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white rounded-xl p-4 border border-art-100 cursor-pointer hover:border-art-accent transition-colors shadow-sm">
+                        <input type="checkbox" data-practice="manzana" class="practice-check accent-blue-600 w-5 h-5 mt-0.5 shrink-0">
+                        <span class="text-art-700 text-sm leading-relaxed"><b>Dibuja una manzana</b> aplicando luz, sombra propia y luz de rebote.</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white rounded-xl p-4 border border-art-100 cursor-pointer hover:border-art-accent transition-colors shadow-sm">
+                        <input type="checkbox" data-practice="retrato" class="practice-check accent-blue-600 w-5 h-5 mt-0.5 shrink-0">
+                        <span class="text-art-700 text-sm leading-relaxed"><b>Copia un retrato boca abajo</b> para engañar a tu cerebro (truco pro).</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white rounded-xl p-4 border border-art-100 cursor-pointer hover:border-art-accent transition-colors shadow-sm">
+                        <input type="checkbox" data-practice="rostro" class="practice-check accent-blue-600 w-5 h-5 mt-0.5 shrink-0">
+                        <span class="text-art-700 text-sm leading-relaxed"><b>Memoriza las proporciones del rostro</b> usando la cuadrícula del diagrama.</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white rounded-xl p-4 border border-art-100 cursor-pointer hover:border-art-accent transition-colors shadow-sm">
+                        <input type="checkbox" data-practice="persp2" class="practice-check accent-blue-600 w-5 h-5 mt-0.5 shrink-0">
+                        <span class="text-art-700 text-sm leading-relaxed"><b>Dibuja un edificio</b> con perspectiva de 2 puntos desde una esquina.</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white rounded-xl p-4 border border-art-100 cursor-pointer hover:border-art-accent transition-colors shadow-sm">
+                        <input type="checkbox" data-practice="arbol" class="practice-check accent-blue-600 w-5 h-5 mt-0.5 shrink-0">
+                        <span class="text-art-700 text-sm leading-relaxed"><b>Dibuja un árbol fractal</b> con ramas en "Y" y define su fuente de luz.</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section id="practica" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-art-accent uppercase mb-2">Entrena</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-art-950">Zona de Práctica</h3>
+                    <p class="mt-4 text-art-600 max-w-2xl mx-auto">Dibuja con el mouse, el trackpad o tu dedo (en tablet y móvil) y comprueba tu pulso con 4 ejercicios de control.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Controls -->
+                    <div class="space-y-5 reveal">
+                        <div class="bg-art-50 rounded-2xl p-6 border border-art-100">
+                            <h4 class="font-bold text-art-900 mb-1 flex items-center gap-2">
+                                <i data-lucide="sliders-horizontal" class="text-art-accent w-5 h-5"></i> Elige tu ejercicio
+                            </h4>
+                            <p class="text-xs text-art-500 mb-4">Un ejercicio por tema del curso.</p>
+
+                            <h5 class="text-[11px] font-bold uppercase tracking-wider text-art-500 mb-2 flex items-center gap-1.5">
+                                <i data-lucide="pen-line" class="w-3.5 h-3.5"></i> Trazo
+                            </h5>
+                            <div class="grid grid-cols-3 gap-2 mb-4">
+                                <button type="button" data-mode="line" class="mode-btn flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl border border-art-200 bg-white text-art-700 hover:border-art-accent transition-colors">
+                                    <i data-lucide="slash" class="w-5 h-5"></i>
+                                    <span class="text-xs font-semibold">Línea</span>
+                                </button>
+                                <button type="button" data-mode="arc" class="mode-btn flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl border border-art-200 bg-white text-art-700 hover:border-art-accent transition-colors">
+                                    <i data-lucide="bezier-curve" class="w-5 h-5"></i>
+                                    <span class="text-xs font-semibold">Curva</span>
+                                </button>
+                                <button type="button" data-mode="circle" class="mode-btn flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl border border-art-200 bg-white text-art-700 hover:border-art-accent transition-colors">
+                                    <i data-lucide="circle" class="w-5 h-5"></i>
+                                    <span class="text-xs font-semibold">Círculo</span>
+                                </button>
+                            </div>
+
+                            <h5 class="text-[11px] font-bold uppercase tracking-wider text-art-500 mb-2 flex items-center gap-1.5">
+                                <i data-lucide="contrast" class="w-3.5 h-3.5"></i> Valor
+                            </h5>
+                            <div class="grid grid-cols-1 gap-2 mb-4">
+                                <button type="button" data-mode="value" class="mode-btn flex items-center justify-center gap-2 px-3 py-3 rounded-xl border border-art-200 bg-white text-art-700 hover:border-art-accent transition-colors">
+                                    <i data-lucide="contrast" class="w-5 h-5"></i>
+                                    <span class="text-xs font-semibold">Escala de grises</span>
+                                </button>
+                            </div>
+
+                            <h5 class="text-[11px] font-bold uppercase tracking-wider text-art-500 mb-2 flex items-center gap-1.5">
+                                <i data-lucide="rows-3" class="w-3.5 h-3.5"></i> Sombreado
+                            </h5>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button type="button" data-mode="hatch" class="mode-btn flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl border border-art-200 bg-white text-art-700 hover:border-art-accent transition-colors">
+                                    <i data-lucide="rows-3" class="w-5 h-5"></i>
+                                    <span class="text-xs font-semibold">Trama</span>
+                                </button>
+                                <button type="button" data-mode="crosshatch" class="mode-btn flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl border border-art-200 bg-white text-art-700 hover:border-art-accent transition-colors">
+                                    <i data-lucide="grid-3x3" class="w-5 h-5"></i>
+                                    <span class="text-xs font-semibold">Trama cruzada</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-art-50 rounded-2xl p-6 border border-art-100">
+                            <h4 class="font-bold text-art-900 mb-2 flex items-center gap-2">
+                                <i data-lucide="lightbulb" class="text-art-accent w-5 h-5"></i> Consejo del día
+                            </h4>
+                            <p id="practice-tip" class="text-art-600 text-sm">Traza la línea de un solo movimiento, rápido y confiado. Dibuja con el hombro, no con la muñeca.</p>
+                        </div>
+
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-art-500 flex items-center gap-2">
+                                <i data-lucide="flame" class="w-4 h-4 text-orange-400"></i>
+                                Trazos hechos: <b id="practice-attempts" class="text-art-900">0</b>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Canvas -->
+                    <div class="lg:col-span-2 reveal" style="transition-delay: 120ms;">
+                        <div class="bg-art-50 rounded-2xl p-6 border border-art-100">
+                            <div class="bg-white rounded-xl border-2 border-dashed border-art-200 overflow-hidden">
+                                <canvas id="practice-canvas" width="800" height="500" class="w-full h-auto block cursor-crosshair touch-none" aria-label="Lienzo de práctica de dibujo"></canvas>
+                            </div>
+                            <div class="mt-5 flex flex-wrap items-center gap-3">
+                                <button id="practice-new" class="inline-flex items-center gap-2 px-6 py-3 bg-art-950 text-white rounded-full text-sm font-bold hover:bg-art-800 transition-colors">
+                                    <i data-lucide="dices" class="w-4 h-4"></i> Nuevo trazo
+                                </button>
+                                <button id="practice-verify" class="inline-flex items-center gap-2 px-6 py-3 bg-art-accent text-white rounded-full text-sm font-bold hover:bg-blue-600 transition-colors">
+                                    <i data-lucide="check" class="w-4 h-4"></i> Comprobar
+                                </button>
+                                <button id="practice-clear" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-art-300 text-art-700 rounded-full text-sm font-semibold hover:bg-art-50 transition-colors">
+                                    <i data-lucide="eraser" class="w-4 h-4"></i> Limpiar
+                                </button>
+                            </div>
+                            <div id="practice-feedback" class="mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="py-20 bg-art-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-art-accent uppercase mb-2">Autoevalúate</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-art-950">Quiz por Módulo</h3>
+                    <p class="mt-4 text-art-600 max-w-2xl mx-auto">Responde 3 preguntas por tema. Tu mejor puntuación y tus intentos se guardan en este dispositivo.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
+                    <button type="button" data-quiz="materiales" class="quiz-tab px-6 py-3 rounded-full border border-art-200 bg-white text-art-700 font-semibold text-sm hover:border-art-accent transition-colors">Materiales</button>
+                    <button type="button" data-quiz="sombreado" class="quiz-tab px-6 py-3 rounded-full border border-art-200 bg-white text-art-700 font-semibold text-sm hover:border-art-accent transition-colors">Sombreado</button>
+                    <button type="button" data-quiz="color" class="quiz-tab px-6 py-3 rounded-full border border-art-200 bg-white text-art-700 font-semibold text-sm hover:border-art-accent transition-colors">Color</button>
+                    <button type="button" data-quiz="anatomia" class="quiz-tab px-6 py-3 rounded-full border border-art-200 bg-white text-art-700 font-semibold text-sm hover:border-art-accent transition-colors">Anatomía</button>
+                    <button type="button" data-quiz="perspectiva" class="quiz-tab px-6 py-3 rounded-full border border-art-200 bg-white text-art-700 font-semibold text-sm hover:border-art-accent transition-colors">Perspectiva</button>
+                </div>
+
+                <div id="quiz-container" class="bg-white rounded-2xl p-8 border border-art-200 shadow-sm min-h-[280px] flex items-center justify-center reveal">
+                    <div class="text-center text-art-400">
+                        <i data-lucide="mouse-pointer-click" class="w-10 h-10 mx-auto mb-3"></i>
+                        <p class="font-semibold text-art-600">Elige un módulo para comenzar</p>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="hidden bg-white rounded-2xl p-8 border border-art-200 shadow-sm mt-6 text-center reveal">
+                    <div class="text-6xl font-serif font-bold text-art-950 mb-2" id="quiz-pct">0%</div>
+                    <p class="text-art-600 mb-4" id="quiz-msg">Resultado</p>
+                    <div class="text-sm text-art-500 mb-6" id="quiz-stats"></div>
+                    <button id="quiz-retry" class="inline-flex items-center gap-2 px-6 py-3 bg-art-950 text-white rounded-full text-sm font-bold hover:bg-art-800 transition-colors">
+                        <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Reintentar módulo
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="recursos" class="py-20 bg-art-950 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 reveal">Aprende de los Maestros</h2>
+                <p class="text-art-300 mb-12 max-w-2xl mx-auto reveal">Este sitio está inspirado en el asombroso conocimiento compartido por estos geniales creadores. ¡Suscríbete a sus canales para apoyar el arte!</p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 reveal">
+                    <!-- Sir Pino -->
+                    <article class="bg-art-900 p-6 rounded-2xl border border-art-800 hover:border-art-500 transition-colors flex flex-col items-center w-full max-w-xs">
+                        <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 border-2 border-art-600 bg-gradient-to-br from-blue-500 to-blue-700 shadow-lg">
+                            <span class="text-white font-serif font-bold text-2xl">SP</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1">Sir Pino</h3>
+                        <p class="text-sm text-art-400 mb-5">Ejercicios increíbles desde cero, tinta, perspectiva y proporciones.</p>
+                        <div class="flex gap-2 w-full">
+                            <a href="https://www.youtube.com/@SirPino" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium transition-colors">
+                                <i data-lucide="youtube" class="w-4 h-4"></i> Canal
+                            </a>
+                            <a href="https://sirpino.com/" target="_blank" rel="noopener noreferrer" aria-label="Sitio web de Sir Pino" class="inline-flex items-center justify-center w-11 h-10 bg-art-800 hover:bg-art-700 text-art-300 rounded-lg transition-colors">
+                                <i data-lucide="globe" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Arte Vivo y Divertido -->
+                    <article class="bg-art-900 p-6 rounded-2xl border border-art-800 hover:border-art-500 transition-colors flex flex-col items-center w-full max-w-xs">
+                        <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 border-2 border-art-600 bg-gradient-to-br from-emerald-500 to-emerald-700 shadow-lg">
+                            <span class="text-white font-serif font-bold text-xl">AVD</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1">Arte Vivo y Divertido</h3>
+                        <p class="text-sm text-art-400 mb-5">Tutoriales detallados paso a paso de paisajes, retratos y pintura.</p>
+                        <div class="flex gap-2 w-full">
+                            <a href="https://www.youtube.com/user/McFinnegan1973" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium transition-colors">
+                                <i data-lucide="youtube" class="w-4 h-4"></i> Canal
+                            </a>
+                            <a href="https://retratarte.org/" target="_blank" rel="noopener noreferrer" aria-label="Sitio web de Arte Vivo y Divertido" class="inline-flex items-center justify-center w-11 h-10 bg-art-800 hover:bg-art-700 text-art-300 rounded-lg transition-colors">
+                                <i data-lucide="globe" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Agata del Barco -->
+                    <article class="bg-art-900 p-6 rounded-2xl border border-art-800 hover:border-art-500 transition-colors flex flex-col items-center w-full max-w-xs">
+                        <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 border-2 border-art-600 bg-gradient-to-br from-rose-400 to-pink-600 shadow-lg">
+                            <span class="text-white font-serif font-bold text-xl">ADB</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1">Agata del Barco</h3>
+                        <p class="text-sm text-art-400 mb-5">Tips maestros de teoría del color, sombreado y pintura al óleo.</p>
+                        <div class="flex gap-2 w-full">
+                            <a href="https://www.youtube.com/channel/UCKVnXjD1Y27s99WD4p9Uveg" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium transition-colors">
+                                <i data-lucide="youtube" class="w-4 h-4"></i> Canal
+                            </a>
+                            <a href="https://agatadelbarco.com/" target="_blank" rel="noopener noreferrer" aria-label="Sitio web de Agata del Barco" class="inline-flex items-center justify-center w-11 h-10 bg-art-800 hover:bg-art-700 text-art-300 rounded-lg transition-colors">
+                                <i data-lucide="globe" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1b1f] pt-14 pb-8 border-t border-art-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <span class="w-9 h-9 rounded-lg bg-art-800 flex items-center justify-center">
+                            <i data-lucide="palette" class="text-art-accent w-5 h-5"></i>
+                        </span>
+                        <span class="font-serif font-bold text-xl text-white">DominaElLápiz</span>
+                    </div>
+                    <p class="text-art-500 text-sm max-w-md leading-relaxed">
+                        Una guía gratuita para aprender a dibujar desde cero: materiales, sombreado, color, anatomía y perspectiva. La práctica es la clave: ¡toma un lápiz y dibuja!
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Explorar</h4>
+                    <ul class="space-y-2.5 text-sm text-art-400">
+                        <li><a href="index.html#ruta" class="hover:text-art-accent transition-colors">Tu ruta de aprendizaje</a></li>
+                        <li><a href="materiales.html" class="hover:text-art-accent transition-colors">Materiales</a></li>
+                        <li><a href="sombreado.html" class="hover:text-art-accent transition-colors">Técnicas de Sombreado</a></li>
+                        <li><a href="materiales.html#valor" class="hover:text-art-accent transition-colors">Valor tonal</a></li>
+                        <li><a href="sombreado.html#luz" class="hover:text-art-accent transition-colors">Luz y sombra</a></li>
+                        <li><a href="color.html" class="hover:text-art-accent transition-colors">Teoría del Color</a></li>
+                        <li><a href="anatomia.html" class="hover:text-art-accent transition-colors">Anatomía &amp; Rostro</a></li>
+                        <li><a href="perspectiva.html" class="hover:text-art-accent transition-colors">Perspectiva</a></li>
+                        <li><a href="perspectiva.html#composicion" class="hover:text-art-accent transition-colors">Composición</a></li>
+                        <li><a href="perspectiva.html#texturas" class="hover:text-art-accent transition-colors">Texturas</a></li>
+                        <li><a href="anatomia.html#retrato" class="hover:text-art-accent transition-colors">Retrato paso a paso</a></li>
+                        <li><a href="plan.html#practica" class="hover:text-art-accent transition-colors">Zona de práctica</a></li>
+                        <li><a href="plan.html#quiz" class="hover:text-art-accent transition-colors">Evaluación</a></li>
+                        <li><a href="plan.html#plan" class="hover:text-art-accent transition-colors">Tu plan de práctica</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Maestros</h4>
+                    <ul class="space-y-2.5 text-sm text-art-400">
+                        <li><a href="https://www.youtube.com/@SirPino" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Sir Pino</a></li>
+                        <li><a href="https://www.youtube.com/user/McFinnegan1973" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Arte Vivo y Divertido</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCKVnXjD1Y27s99WD4p9Uveg" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Agata del Barco</a></li>
+                        <li><a href="plan.html#recursos" class="hover:text-art-accent transition-colors">Todos los recursos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-art-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p class="text-art-500 text-sm">© 2026 DominaElLápiz. Hecho para aprender.</p>
+                <a href="index.html" class="inline-flex items-center gap-2 text-sm text-art-400 hover:text-art-accent transition-colors">
+                    Volver arriba
+                    <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-art-950 text-white shadow-lg hover:bg-art-800 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center" aria-label="Volver arriba">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/practica.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>

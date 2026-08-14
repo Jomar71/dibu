@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiales y Valor Tonal | DominaElLápiz</title>
+    <meta name="description" content="Conoce tus lápices, gomas y papeles y domina la escala de grises y el valor tonal para dar volumen a tus dibujos.">
+    <meta name="theme-color" content="#232429">
+    <meta property="og:title" content="DominaElLápiz — Aprende a dibujar desde cero">
+    <meta property="og:description" content="Masterclass gratuita de arte: materiales, sombreado, teoría del color, anatomía del rostro y perspectiva.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='8' width='84' height='84' rx='22' fill='%233b82f6'/%3E%3Cpath d='M32 68 L52 28 L74 68 Z' fill='white'/%3E%3Crect x='58' y='44' width='9' height='34' rx='4' fill='white'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind custom config -->
+    <script src="js/tailwind.config.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-art-50 text-art-900 font-sans antialiased overflow-x-hidden">
+
+    <!-- Skip link -->
+    <a href="#contenido" class="skip-link sr-only">Saltar al contenido principal</a>
+
+    <!-- Reading progress bar -->
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-art-accent z-[60] w-0" aria-hidden="true"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar" aria-label="Navegación principal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-2.5" aria-label="DominaElLápiz, inicio">
+                    <span class="w-10 h-10 rounded-xl bg-art-950 flex items-center justify-center shadow-sm">
+                        <i data-lucide="palette" class="text-art-accent w-6 h-6"></i>
+                    </span>
+                    <span class="font-serif font-bold text-2xl tracking-tight text-art-950">DominaElLápiz</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="index.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Inicio</a>
+                    <a href="materiales.html" class="nav-link page-active text-art-900 hover:text-art-accent font-medium transition-colors" aria-current="page">Materiales</a>
+                    <a href="sombreado.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Sombreado</a>
+                    <a href="color.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Color</a>
+                    <a href="anatomia.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Anatomía</a>
+                    <a href="perspectiva.html" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Perspectiva</a>
+                    <a href="plan.html#plan" class="nav-link text-art-600 hover:text-art-accent font-medium transition-colors">Tu plan</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-art-800 hover:text-art-accent focus:outline-none p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-t border-art-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Inicio</a>
+                <a href="index.html#ruta" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Tu ruta de aprendizaje</a>
+                <a href="materiales.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-accent bg-art-50 hover:bg-art-50">Materiales</a>
+                <a href="sombreado.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Técnicas de Sombreado</a>
+                <a href="materiales.html#valor" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Valor tonal</a>
+                <a href="sombreado.html#luz" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Luz y sombra</a>
+                <a href="color.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Teoría del Color</a>
+                <a href="anatomia.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Anatomía &amp; Rostro</a>
+                <a href="perspectiva.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Perspectiva</a>
+                <a href="perspectiva.html#composicion" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Composición</a>
+                <a href="perspectiva.html#texturas" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Texturas</a>
+                <a href="anatomia.html#retrato" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Retrato paso a paso</a>
+                <a href="plan.html#practica" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Zona de práctica</a>
+                <a href="plan.html#quiz" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Evaluación</a>
+                <a href="plan.html#plan" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Tu plan de práctica</a>
+                <a href="plan.html#recursos" class="block px-3 py-2.5 rounded-lg text-base font-medium text-art-800 hover:bg-art-50 hover:text-art-accent">Recursos y creadores</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido">
+
+        <section id="materiales" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-art-accent uppercase mb-2">Herramientas</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-art-950">Conoce tus Materiales</h3>
+                    <p class="mt-4 text-art-600 max-w-2xl mx-auto">No necesitas herramientas costosas para empezar, pero conocer las diferencias entre ellas potenciará tus resultados.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Lápices -->
+                    <article class="bg-art-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 reveal border border-art-100">
+                        <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
+                            <i data-lucide="pencil" class="text-art-accent w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-art-900 mb-3">Lápices de Grafito</h4>
+                        <p class="text-art-600 mb-4">Se dividen en dos categorías principales:</p>
+                        <ul class="space-y-2 text-art-700">
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500 mt-0.5 shrink-0"></i> <b>Lápices H (Hard):</b> 2H, 4H. Son duros, dejan un trazo claro. Ideales para bocetos iniciales porque no ensucian la hoja.</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500 mt-0.5 shrink-0"></i> <b>Lápices B (Black):</b> 2B, 6B, 8B. Son blandos, dejan mucho grafito. Perfectos para sombras oscuras y dar volumen.</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500 mt-0.5 shrink-0"></i> <b>Lápiz HB:</b> El punto medio perfecto.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Gomas -->
+                    <article class="bg-art-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 reveal border border-art-100" style="transition-delay: 100ms;">
+                        <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
+                            <i data-lucide="eraser" class="text-art-accent w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-art-900 mb-3">Gomas de Borrar</h4>
+                        <p class="text-art-600 mb-4">La goma no es solo para corregir errores, ¡es una herramienta de dibujo para crear luces!</p>
+                        <ul class="space-y-2 text-art-700">
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500 mt-0.5 shrink-0"></i> <b>Goma Moldeable:</b> Absorbe el grafito sin dejar residuos o "migas". Se puede moldear para borrar detalles finos.</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500 mt-0.5 shrink-0"></i> <b>Goma Vinílica:</b> La clásica. Útil para borrar áreas grandes o trazos fuertes.</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500 mt-0.5 shrink-0"></i> <b>Tip:</b> Corta un pedacito de goma normal para hacer brillos muy finos.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Difuminos -->
+                    <article class="bg-art-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 reveal border border-art-100" style="transition-delay: 200ms;">
+                        <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
+                            <i data-lucide="paintbrush" class="text-art-accent w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-art-900 mb-3">Herramientas de Difuminado</h4>
+                        <p class="text-art-600 mb-4">Para integrar el grafito y crear transiciones suaves.</p>
+                        <ul class="space-y-2 text-art-700">
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500 mt-0.5 shrink-0"></i> <b>El Difumino:</b> Excelente para integrar zonas pequeñas y medianas sin quitar carga de pigmento.</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500 mt-0.5 shrink-0"></i> <b>Papel / Pañuelo:</b> Unifica el tono y da un acabado muy suave en áreas grandes.</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500 mt-0.5 shrink-0"></i> <b>Pincel suave:</b> Crea un efecto de aguada o baño de color muy delicado.</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Más lecciones · Nivel 1 -->
+                <div class="mt-14 reveal">
+                    <h4 class="text-2xl font-bold text-art-900 mb-1 flex items-center gap-2">
+                        <i data-lucide="layers" class="text-art-accent"></i> Más lecciones · Nivel 1
+                    </h4>
+                    <p class="text-art-600 text-sm mb-6">Domina estas bases antes de pasar al Nivel 2.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <details class="group bg-art-50 rounded-xl border border-art-200 shadow-sm cursor-pointer" open>
+                            <summary class="font-bold text-lg text-art-900 p-6 flex justify-between items-center gap-4 outline-none">
+                                <span class="flex items-center gap-2 flex-wrap">
+                                    <i data-lucide="hand" class="text-art-accent"></i> Cómo sujetar el lápiz
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100 rounded-full px-2 py-0.5">Nivel 1</span>
+                                </span>
+                                <i data-lucide="chevron-down" class="summary-chevron text-art-500 shrink-0"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-art-600 text-sm space-y-2">
+                                <p>La forma de sostener el lápiz cambia por completo tu línea:</p>
+                                <ul class="list-disc pl-5">
+                                    <li><b>Agarre de escritura:</b> preciso; para detalles y líneas cortas.</li>
+                                    <li><b>Agarre por encima (overhand):</b> palma hacia abajo, lápiz apoyado en los dedos. Mueve el hombro y logra trazos largos y sueltos.</li>
+                                    <li><b>Agarre bajo la palma (underhand):</b> la mina "acostada" sobre el papel, perfecto para sombreados suaves.</li>
+                                </ul>
+                                <p><b>Regla:</b> para trazos largos mueve el codo y el hombro; la muñeca solo para micro-detalles.</p>
+                            </div>
+                        </details>
+
+                        <details class="group bg-art-50 rounded-xl border border-art-200 shadow-sm cursor-pointer">
+                            <summary class="font-bold text-lg text-art-900 p-6 flex justify-between items-center gap-4 outline-none">
+                                <span class="flex items-center gap-2 flex-wrap">
+                                    <i data-lucide="file-text" class="text-art-accent"></i> El papel ideal para cada técnica
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100 rounded-full px-2 py-0.5">Nivel 1</span>
+                                </span>
+                                <i data-lucide="chevron-down" class="summary-chevron text-art-500 shrink-0"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-art-600 text-sm space-y-2">
+                                <ul class="list-disc pl-5">
+                                    <li><b>Papel liso (90–120 g):</b> para bocetos y trama; la línea sale nítida.</li>
+                                    <li><b>Papel de grano medio (120–180 g):</b> el todoterreno para grafito y carboncillo; aguanta difuminado.</li>
+                                    <li><b>Papel texturado / verjurado:</b> el grano "atrapa" el grafito; ideal para sombras con la mina acostada.</li>
+                                    <li><b>Gramaje:</b> cuanto más alto, más aguanta borrados y capas sin romperse.</li>
+                                </ul>
+                                <p><b>Tip:</b> guarda los bocetos en un portafolios para ver tu progreso. El papel áspero con lápiz duro = mancha gris, no sombra limpia.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="valor" class="py-20 bg-art-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-art-accent uppercase mb-2">Fundamentos</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-art-950">Valor Tonal y Escala de Grises</h3>
+                    <p class="mt-4 text-art-600 max-w-2xl mx-auto">El valor es el grado de claridad u oscuridad de un tono. Es la base del volumen: sin valores no hay luz, ni sombra, ni profundidad.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
+                    <div>
+                        <h4 class="text-2xl font-bold text-art-900 mb-4">La escala de grises</h4>
+                        <p class="text-art-600 mb-6 leading-relaxed">Dibuja una escala de 10 pasos desde el blanco del papel hasta el negro. Te servirá como "regla" para medir cualquier valor que veas en tus referencias: compara y busca el paso más cercano.</p>
+                        <div class="space-y-5">
+                            <div class="flex gap-4 items-start">
+                                <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-art-100 shrink-0">
+                                    <i data-lucide="eye" class="text-art-accent w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-art-800">Truco 1 · Entorna los ojos</h5>
+                                    <p class="text-art-600 text-sm">Entrecerrar los ojos borra los detalles y deja ver solo los grandes bloques de luz y sombra.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-art-100 shrink-0">
+                                    <i data-lucide="contrast" class="text-art-accent w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-art-800">Truco 2 · Ve en blanco y negro</h5>
+                                    <p class="text-art-600 text-sm">Pon tu referencia en modo monocromo: eliminar el color te deja ver los valores puros.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-art-100 shrink-0">
+                                    <i data-lucide="refresh-cw" class="text-art-accent w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-art-800">Truco 3 · Compara con el fondo</h5>
+                                    <p class="text-art-600 text-sm">Un mismo gris se ve más claro u oscuro según lo que tenga al lado. Compara siempre los valores entre sí, nunca "a ojo aislado".</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 bg-white rounded-xl p-5 border border-art-200">
+                            <h5 class="font-bold text-art-800 mb-3 text-sm">Las 3 claves tonales</h5>
+                            <div class="grid grid-cols-3 gap-3 text-center text-[11px] text-art-500">
+                                <div>
+                                    <div class="h-10 rounded-lg mb-1.5" style="background: linear-gradient(90deg, #ffffff, #bdbdbd);"></div>
+                                    Clave alta (clara)
+                                </div>
+                                <div>
+                                    <div class="h-10 rounded-lg mb-1.5" style="background: linear-gradient(90deg, #d0d0d0, #5a5a5a);"></div>
+                                    Clave media
+                                </div>
+                                <div>
+                                    <div class="h-10 rounded-lg mb-1.5" style="background: linear-gradient(90deg, #6f6f6f, #0a0a0a);"></div>
+                                    Clave baja (oscura)
+                                </div>
+                            </div>
+                            <p class="text-art-600 text-xs mt-2">Los retratos suaves usan clave alta; las escenas dramáticas, clave baja.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 border border-art-200 shadow-sm">
+                        <svg viewBox="0 0 320 300" class="w-full h-auto block" role="img" aria-label="Escala de valores y esfera con zonas de valor">
+                            <rect width="320" height="300" rx="14" fill="#fafaf7"/>
+                            <text x="160" y="24" text-anchor="middle" font-size="11" font-weight="600" fill="#6b7280" font-family="Outfit, sans-serif">Escala de 10 valores</text>
+                            <g>
+                                <rect x="20" y="34" width="28" height="40" fill="#f8f8f8" stroke="#e5e5e5"/>
+                                <rect x="50" y="34" width="28" height="40" fill="#dedede"/>
+                                <rect x="80" y="34" width="28" height="40" fill="#c3c3c3"/>
+                                <rect x="110" y="34" width="28" height="40" fill="#a9a9a9"/>
+                                <rect x="140" y="34" width="28" height="40" fill="#8e8e8e"/>
+                                <rect x="170" y="34" width="28" height="40" fill="#737373"/>
+                                <rect x="200" y="34" width="28" height="40" fill="#595959"/>
+                                <rect x="230" y="34" width="28" height="40" fill="#3e3e3e"/>
+                                <rect x="260" y="34" width="28" height="40" fill="#242424"/>
+                                <rect x="290" y="34" width="28" height="40" fill="#0a0a0a"/>
+                            </g>
+                            <g font-size="9" fill="#9ca3af" font-family="Outfit, sans-serif" text-anchor="middle">
+                                <text x="34" y="84">0</text><text x="64" y="84">1</text><text x="94" y="84">2</text>
+                                <text x="124" y="84">3</text><text x="154" y="84">4</text><text x="184" y="84">5</text>
+                                <text x="214" y="84">6</text><text x="244" y="84">7</text><text x="274" y="84">8</text><text x="304" y="84">9</text>
+                            </g>
+                            <text x="160" y="118" text-anchor="middle" font-size="11" font-weight="600" fill="#6b7280" font-family="Outfit, sans-serif">Valores en una esfera</text>
+                            <defs>
+                                <radialGradient id="g-valor" cx="28%" cy="26%" r="78%">
+                                    <stop offset="0%" stop-color="#ffffff"/>
+                                    <stop offset="45%" stop-color="#cfcfcf"/>
+                                    <stop offset="75%" stop-color="#828282"/>
+                                    <stop offset="100%" stop-color="#2b2b2b"/>
+                                </radialGradient>
+                            </defs>
+                            <ellipse cx="100" cy="226" rx="52" ry="9" fill="#e0e0e3"/>
+                            <circle cx="100" cy="182" r="44" fill="url(#g-valor)"/>
+                            <path d="M56 148 L84 152" stroke="#3b82f6" stroke-width="2"/>
+                            <path d="M84 152 L72 146 M84 152 L80 160" stroke="#3b82f6" stroke-width="2"/>
+                            <text x="40" y="142" font-size="9" fill="#3b82f6" font-family="Outfit, sans-serif">luz</text>
+                            <path d="M140 226 L150 236" stroke="#f59e0b" stroke-width="1.8"/>
+                            <text x="140" y="222" font-size="8.5" fill="#f59e0b" font-family="Outfit, sans-serif">rebote</text>
+                            <g>
+                                <rect x="176" y="150" width="26" height="26" fill="#f8f8f8" stroke="#e5e5e5"/>
+                                <rect x="208" y="150" width="26" height="26" fill="#c3c3c3"/>
+                                <rect x="240" y="150" width="26" height="26" fill="#8e8e8e"/>
+                                <rect x="272" y="150" width="26" height="26" fill="#595959"/>
+                                <rect x="176" y="182" width="26" height="26" fill="#242424"/>
+                            </g>
+                            <g font-size="8.5" fill="#9ca3af" font-family="Outfit, sans-serif">
+                                <text x="189" y="220" text-anchor="middle">1</text>
+                                <text x="221" y="220" text-anchor="middle">2</text>
+                                <text x="253" y="220" text-anchor="middle">3</text>
+                                <text x="285" y="220" text-anchor="middle">4</text>
+                                <text x="189" y="248" text-anchor="middle">5</text>
+                            </g>
+                            <text x="160" y="280" text-anchor="middle" font-size="9" fill="#a1a1aa" font-family="Outfit, sans-serif">Del 1 (luz) al 5 (sombra profunda) + luz de rebote</text>
+                        </svg>
+                        <div class="flex flex-wrap gap-2 justify-center mt-3 text-[10px] text-art-500">
+                            <span class="flex items-center gap-1.5"><span class="w-4 h-4 rounded bg-[#f8f8f8] border border-art-200"></span>1 Luz</span>
+                            <span class="flex items-center gap-1.5"><span class="w-4 h-4 rounded bg-[#c3c3c3]"></span>2 Medio claro</span>
+                            <span class="flex items-center gap-1.5"><span class="w-4 h-4 rounded bg-[#8e8e8e]"></span>3 Tono medio</span>
+                            <span class="flex items-center gap-1.5"><span class="w-4 h-4 rounded bg-[#595959]"></span>4 Sombra</span>
+                            <span class="flex items-center gap-1.5"><span class="w-4 h-4 rounded bg-[#242424]"></span>5 Profunda</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1b1f] pt-14 pb-8 border-t border-art-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <span class="w-9 h-9 rounded-lg bg-art-800 flex items-center justify-center">
+                            <i data-lucide="palette" class="text-art-accent w-5 h-5"></i>
+                        </span>
+                        <span class="font-serif font-bold text-xl text-white">DominaElLápiz</span>
+                    </div>
+                    <p class="text-art-500 text-sm max-w-md leading-relaxed">
+                        Una guía gratuita para aprender a dibujar desde cero: materiales, sombreado, color, anatomía y perspectiva. La práctica es la clave: ¡toma un lápiz y dibuja!
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Explorar</h4>
+                    <ul class="space-y-2.5 text-sm text-art-400">
+                        <li><a href="index.html#ruta" class="hover:text-art-accent transition-colors">Tu ruta de aprendizaje</a></li>
+                        <li><a href="materiales.html" class="hover:text-art-accent transition-colors">Materiales</a></li>
+                        <li><a href="sombreado.html" class="hover:text-art-accent transition-colors">Técnicas de Sombreado</a></li>
+                        <li><a href="materiales.html#valor" class="hover:text-art-accent transition-colors">Valor tonal</a></li>
+                        <li><a href="sombreado.html#luz" class="hover:text-art-accent transition-colors">Luz y sombra</a></li>
+                        <li><a href="color.html" class="hover:text-art-accent transition-colors">Teoría del Color</a></li>
+                        <li><a href="anatomia.html" class="hover:text-art-accent transition-colors">Anatomía &amp; Rostro</a></li>
+                        <li><a href="perspectiva.html" class="hover:text-art-accent transition-colors">Perspectiva</a></li>
+                        <li><a href="perspectiva.html#composicion" class="hover:text-art-accent transition-colors">Composición</a></li>
+                        <li><a href="perspectiva.html#texturas" class="hover:text-art-accent transition-colors">Texturas</a></li>
+                        <li><a href="anatomia.html#retrato" class="hover:text-art-accent transition-colors">Retrato paso a paso</a></li>
+                        <li><a href="plan.html#practica" class="hover:text-art-accent transition-colors">Zona de práctica</a></li>
+                        <li><a href="plan.html#quiz" class="hover:text-art-accent transition-colors">Evaluación</a></li>
+                        <li><a href="plan.html#plan" class="hover:text-art-accent transition-colors">Tu plan de práctica</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Maestros</h4>
+                    <ul class="space-y-2.5 text-sm text-art-400">
+                        <li><a href="https://www.youtube.com/@SirPino" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Sir Pino</a></li>
+                        <li><a href="https://www.youtube.com/user/McFinnegan1973" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Arte Vivo y Divertido</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCKVnXjD1Y27s99WD4p9Uveg" target="_blank" rel="noopener noreferrer" class="hover:text-art-accent transition-colors">Agata del Barco</a></li>
+                        <li><a href="plan.html#recursos" class="hover:text-art-accent transition-colors">Todos los recursos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-art-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p class="text-art-500 text-sm">© 2026 DominaElLápiz. Hecho para aprender.</p>
+                <a href="index.html" class="inline-flex items-center gap-2 text-sm text-art-400 hover:text-art-accent transition-colors">
+                    Volver arriba
+                    <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-art-950 text-white shadow-lg hover:bg-art-800 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center" aria-label="Volver arriba">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
