@@ -115,6 +115,79 @@ details[open] .summary-chevron {
     transform: rotate(180deg);
 }
 
+.accordion {
+    border-top: 1px solid #d9d9df;
+}
+.accordion details {
+    interpolate-size: allow-keywords;
+    border-bottom: 1px solid #d9d9df;
+    border-left: 2px solid transparent;
+    padding-left: 1.25rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.accordion details[open] {
+    border-left-color: #3b82f6;
+    background-color: #f7f7f8;
+}
+.accordion summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4rem;
+    padding: 1.1rem 0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #36373f;
+    transition: color 0.2s ease;
+}
+.accordion summary:hover {
+    color: #3b82f6;
+}
+.accordion details[open] > summary {
+    color: #232429;
+}
+.accordion summary > span:first-child {
+    min-width: 0;
+}
+.accordion .accordion-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    background-color: #eeeef0;
+    color: #5e5f6e;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.accordion details[open] .accordion-icon {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+.accordion .accordion-panel {
+    max-width: 68ch;
+    padding: 0.25rem 3.25rem 1.5rem 0;
+    color: #5e5f6e;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+}
+.accordion .accordion-panel a {
+    color: #2563eb;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+@supports selector(::details-content) {
+    .accordion details::details-content {
+        block-size: 0;
+        overflow: hidden;
+        transition: block-size 0.3s ease, content-visibility 0.3s ease allow-discrete;
+    }
+    .accordion details[open]::details-content {
+        block-size: auto;
+    }
+}
+
 /* Color wheel (Teoría del Color) */
 .color-wheel {
     width: 7.5rem;
